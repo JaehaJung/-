@@ -6,7 +6,7 @@ using namespace std;
 const int maze_size = 6;  //maze 크기 (가로값)
 char maze[maze_size][maze_size];
 
-bool fileStream() {
+bool fileStream() { //파일 read + 배열에 담기
 	ifstream fin;
 	fin.open("test.txt"); // 파일 open
 	char c;
@@ -19,7 +19,7 @@ bool fileStream() {
 		{
 			break;
 		}
-		if (c == '0' || c == '1') {	// 0은 열린부분, 1은 막힌부분
+		if (c == '0' || c == '1'|| c == 'x' || c == 'e') {	// 0은 열린부분, 1은 막힌부분, x는 출구, e는 입구
 			{
 				maze[row][col] = c;
 				col++; if (col == maze_size) { col = 0; row++; } // 0이나 1값을 받을 때 마다 col 값을 증가시키고 다음 열로 넘어가야 하면 col값 증가
